@@ -1,0 +1,26 @@
+[package]
+name = "essentia_browser_plugin"
+version = "0.1.0"
+edition = "2024"
+authors = ["Essentia Services Development <dev@essentia.services>"]
+description = "Pure Rust browser engine with consciousness integration"
+license = "MIT"
+repository = "https://github.com/Essentia-Services-Development/essentia_browser_plugin"
+keywords = ["essentia", "browser", "rendering", "web", "plugin"]
+categories = ["web-programming", "gui"]
+
+[dependencies]
+essentia_core = { path = "../../core/essentia_core" }
+essentia_traits = { path = "../../core/essentia_traits" }
+essentia_plugin_system = { path = "../../core/essentia_plugin_system" }
+essentia_ffui = { path = "../../ui/essentia_ffui" }
+essentia_consciousness = { path = "../../core/essentia_consciousness" }
+
+[dev-dependencies]
+
+[features]
+default = []
+
+[lib]
+name = "essentia_browser_plugin"
+path = "src/lib.rs"
