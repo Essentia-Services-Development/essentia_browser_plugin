@@ -1,21 +1,20 @@
 //! Rendering engine.
 
-use crate::errors::BrowserResult;
-use crate::types::{ComputedStyle, Document, LayoutBox, RenderNode, RenderTree};
+use crate::{
+    errors::BrowserResult,
+    types::{ComputedStyle, Document, LayoutBox, RenderNode, RenderTree},
+};
 
 /// Render engine for layout and painting.
 pub struct RenderEngine {
-    viewport_width: f32,
+    viewport_width:  f32,
     viewport_height: f32,
 }
 
 impl RenderEngine {
     /// Create a new render engine.
     pub fn new(width: f32, height: f32) -> Self {
-        Self {
-            viewport_width: width,
-            viewport_height: height,
-        }
+        Self { viewport_width: width, viewport_height: height }
     }
 
     /// Build render tree from document.
@@ -42,12 +41,7 @@ impl RenderEngine {
             .map(|(i, child)| self.build_render_node(child, x, y + (i as f32 * 20.0)))
             .collect();
 
-        RenderNode {
-            element: element.clone(),
-            computed_style,
-            layout,
-            children,
-        }
+        RenderNode { element: element.clone(), computed_style, layout, children }
     }
 
     /// Layout the render tree.

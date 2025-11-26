@@ -2,17 +2,14 @@
 
 /// Consciousness layer for browser pattern recognition.
 pub struct ConsciousnessLayer {
-    enabled: bool,
+    enabled:         bool,
     coherence_score: f64,
 }
 
 impl ConsciousnessLayer {
     /// Create a new consciousness layer.
     pub fn new(enabled: bool) -> Self {
-        Self {
-            enabled,
-            coherence_score: 1.0,
-        }
+        Self { enabled, coherence_score: 1.0 }
     }
 
     /// Check if consciousness integration is enabled.

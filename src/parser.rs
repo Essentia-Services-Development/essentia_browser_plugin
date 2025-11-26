@@ -1,7 +1,9 @@
 //! HTML parser.
 
-use crate::errors::{BrowserError, BrowserResult};
-use crate::types::{Document, Element};
+use crate::{
+    errors::{BrowserError, BrowserResult},
+    types::{Document, Element},
+};
 
 /// HTML parser.
 pub struct HtmlParser;
@@ -16,11 +18,7 @@ impl HtmlParser {
         let root = Self::parse_element(html)?;
         let title = Self::extract_title(&root);
 
-        Ok(Document {
-            title,
-            root,
-            url: url.to_string(),
-        })
+        Ok(Document { title, root, url: url.to_string() })
     }
 
     /// Parse a single element (simplified).
@@ -36,13 +34,13 @@ impl HtmlParser {
         }
 
         // Find first tag
-        if let Some(start) = html.find('<') {
-            if let Some(end) = html[start..].find('>') {
-                let tag_content = &html[start + 1..start + end];
-                let tag_name = tag_content.split_whitespace().next().unwrap_or("div");
+        if let Some(start) = html.find('<')
+            && let Some(end) = html[start..].find('>')
+        {
+            let tag_content = &html[start + 1..start + end];
+            let tag_name = tag_content.split_whitespace().next().unwrap_or("div");
 
-                return Ok(Element::new(tag_name));
-            }
+            return Ok(Element::new(tag_name));
         }
 
         Ok(Element::new("div"))

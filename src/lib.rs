@@ -1,6 +1,7 @@
 //! # Essentia Browser Plugin
 //!
-//! Pure Rust browser engine with consciousness integration for the Essentia platform.
+//! Pure Rust browser engine with consciousness integration for the Essentia
+//! platform.
 //!
 //! ## Features
 //!
@@ -35,24 +36,23 @@
 //! └─────────────────────────────────────────────────────────────┘
 //! ```
 
-mod types;
-mod errors;
 mod config;
-mod parser;
-mod renderer;
 mod consciousness;
+mod errors;
+mod parser;
 mod plugin;
+mod renderer;
+mod types;
 
-pub use types::{
-    Document, Element, StyleSheet, RenderTree, BrowserTab,
-    NavigationState, PageMetrics,
-};
-pub use errors::{BrowserError, BrowserResult};
 pub use config::BrowserConfig;
-pub use parser::HtmlParser;
-pub use renderer::RenderEngine;
 pub use consciousness::ConsciousnessLayer;
+pub use errors::{BrowserError, BrowserResult};
+pub use parser::HtmlParser;
 pub use plugin::BrowserPlugin;
+pub use renderer::RenderEngine;
+pub use types::{
+    BrowserTab, Document, Element, NavigationState, PageMetrics, RenderTree, StyleSheet,
+};
 
 #[cfg(test)]
 mod tests {

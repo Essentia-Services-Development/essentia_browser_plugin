@@ -6,20 +6,20 @@ pub struct Document {
     /// Document title.
     pub title: String,
     /// Root element.
-    pub root: Element,
+    pub root:  Element,
     /// Document URL.
-    pub url: String,
+    pub url:   String,
 }
 
 /// HTML element.
 #[derive(Debug, Clone)]
 pub struct Element {
     /// Tag name.
-    pub tag: String,
+    pub tag:          String,
     /// Element attributes.
-    pub attributes: Vec<(String, String)>,
+    pub attributes:   Vec<(String, String)>,
     /// Child elements.
-    pub children: Vec<Element>,
+    pub children:     Vec<Element>,
     /// Text content.
     pub text_content: Option<String>,
 }
@@ -28,9 +28,9 @@ impl Element {
     /// Create a new element.
     pub fn new(tag: impl Into<String>) -> Self {
         Self {
-            tag: tag.into(),
-            attributes: Vec::new(),
-            children: Vec::new(),
+            tag:          tag.into(),
+            attributes:   Vec::new(),
+            children:     Vec::new(),
             text_content: None,
         }
     }
@@ -65,7 +65,7 @@ pub struct StyleSheet {
 #[derive(Debug, Clone)]
 pub struct CssRule {
     /// Selector.
-    pub selector: String,
+    pub selector:     String,
     /// Declarations.
     pub declarations: Vec<(String, String)>,
 }
@@ -81,28 +81,28 @@ pub struct RenderTree {
 #[derive(Debug, Clone)]
 pub struct RenderNode {
     /// Associated element.
-    pub element: Element,
+    pub element:        Element,
     /// Computed styles.
     pub computed_style: ComputedStyle,
     /// Layout box.
-    pub layout: LayoutBox,
+    pub layout:         LayoutBox,
     /// Child nodes.
-    pub children: Vec<RenderNode>,
+    pub children:       Vec<RenderNode>,
 }
 
 /// Computed CSS style.
 #[derive(Debug, Clone, Default)]
 pub struct ComputedStyle {
     /// Display mode.
-    pub display: Display,
+    pub display:          Display,
     /// Width in pixels.
-    pub width: Option<f32>,
+    pub width:            Option<f32>,
     /// Height in pixels.
-    pub height: Option<f32>,
+    pub height:           Option<f32>,
     /// Background color.
     pub background_color: Color,
     /// Text color.
-    pub color: Color,
+    pub color:            Color,
 }
 
 /// Display mode.
@@ -134,9 +134,9 @@ impl Color {
 /// Layout box dimensions.
 #[derive(Debug, Clone, Default)]
 pub struct LayoutBox {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
+    pub x:      f32,
+    pub y:      f32,
+    pub width:  f32,
     pub height: f32,
 }
 
@@ -144,15 +144,15 @@ pub struct LayoutBox {
 #[derive(Debug, Clone)]
 pub struct BrowserTab {
     /// Tab ID.
-    pub id: u64,
+    pub id:               u64,
     /// Current URL.
-    pub url: String,
+    pub url:              String,
     /// Page title.
-    pub title: String,
+    pub title:            String,
     /// Navigation state.
     pub navigation_state: NavigationState,
     /// Loaded document.
-    pub document: Option<Document>,
+    pub document:         Option<Document>,
 }
 
 /// Navigation state.
@@ -169,11 +169,11 @@ pub enum NavigationState {
 #[derive(Debug, Clone, Default)]
 pub struct PageMetrics {
     /// Time to first byte (ms).
-    pub ttfb: f64,
+    pub ttfb:                   f64,
     /// DOM content loaded (ms).
-    pub dom_content_loaded: f64,
+    pub dom_content_loaded:     f64,
     /// Page load complete (ms).
-    pub load_complete: f64,
+    pub load_complete:          f64,
     /// First contentful paint (ms).
     pub first_contentful_paint: f64,
 }

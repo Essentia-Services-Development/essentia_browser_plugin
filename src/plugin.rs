@@ -1,20 +1,22 @@
 //! Browser plugin implementation.
 
-use crate::config::BrowserConfig;
-use crate::consciousness::ConsciousnessLayer;
-use crate::errors::{BrowserError, BrowserResult};
-use crate::parser::HtmlParser;
-use crate::renderer::RenderEngine;
-use crate::types::{BrowserTab, Document, NavigationState, PageMetrics};
+use crate::{
+    config::BrowserConfig,
+    consciousness::ConsciousnessLayer,
+    errors::BrowserResult,
+    parser::HtmlParser,
+    renderer::RenderEngine,
+    types::{BrowserTab, NavigationState},
+};
 
 /// Main browser plugin interface.
 pub struct BrowserPlugin {
-    config: BrowserConfig,
-    renderer: RenderEngine,
+    config:        BrowserConfig,
+    renderer:      RenderEngine,
     consciousness: ConsciousnessLayer,
-    tabs: Vec<BrowserTab>,
-    active_tab: usize,
-    next_tab_id: u64,
+    tabs:          Vec<BrowserTab>,
+    active_tab:    usize,
+    next_tab_id:   u64,
 }
 
 impl BrowserPlugin {
@@ -43,11 +45,11 @@ impl BrowserPlugin {
         self.next_tab_id += 1;
 
         self.tabs.push(BrowserTab {
-            id: tab_id,
-            url: String::from("about:blank"),
-            title: String::from("New Tab"),
+            id:               tab_id,
+            url:              String::from("about:blank"),
+            title:            String::from("New Tab"),
             navigation_state: NavigationState::Idle,
-            document: None,
+            document:         None,
         });
 
         self.active_tab = self.tabs.len() - 1;
