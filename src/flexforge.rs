@@ -15,6 +15,9 @@
 //! - Privacy modes: Standard, Strict, Private
 //! - AI content analysis and summarization
 
+#![allow(dead_code)]
+#![allow(clippy::collapsible_if)]
+
 use std::{
     collections::HashMap,
     fmt::Debug,
