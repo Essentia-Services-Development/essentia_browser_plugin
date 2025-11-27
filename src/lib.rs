@@ -39,6 +39,7 @@
 mod config;
 mod consciousness;
 mod errors;
+mod flexforge;
 mod parser;
 mod plugin;
 mod renderer;
@@ -47,6 +48,7 @@ mod types;
 pub use config::BrowserConfig;
 pub use consciousness::ConsciousnessLayer;
 pub use errors::{BrowserError, BrowserResult};
+pub use flexforge::BrowserFlexForgeIntegration;
 pub use parser::HtmlParser;
 pub use plugin::BrowserPlugin;
 pub use renderer::RenderEngine;
