@@ -10,7 +10,7 @@
 //! ## Features
 //!
 //! - Multi-tab browser with synchronized state
-//! - RSP+++ streaming for 60fps page rendering
+//! - ERSP streaming for 60fps page rendering
 //! - Integrated developer tools panel
 //! - Privacy modes: Standard, Strict, Private
 //! - AI content analysis and summarization
